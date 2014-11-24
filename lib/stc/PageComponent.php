@@ -38,13 +38,8 @@ class PageComponent
    */
   public function build($files)
   {
-    $pages = array();
     $files = $files->filter_by(array(&$this, 'filter_by_type'));
 
-    foreach($files as $file) {
-      $pages[] = $file;
-    }
-
-    Config::db()->store('page_list', $pages);
+    Config::db()->store('page_list', $files);
   }
 }
