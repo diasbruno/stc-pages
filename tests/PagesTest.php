@@ -4,7 +4,7 @@ namespace STC\Test;
 
 use STC\Application;
 use STC\Files;
-use STC\PageComponent;
+use STC\PageDatabase;
 use STC\PageWriter;
 
 class PagesTest extends \PHPUnit_Framework_TestCase
@@ -16,7 +16,7 @@ class PagesTest extends \PHPUnit_Framework_TestCase
 
   public function testUnits()
   {
-    $this->assertTrue(new PageComponent() != null);
+    $this->assertTrue(new PageDatabase() != null);
     $this->assertTrue(new PageWriter() != null);
   }
 
@@ -25,8 +25,8 @@ class PagesTest extends \PHPUnit_Framework_TestCase
     $files = new Files();
     $files->load(dirname(__FILE__).'/data', 'page-data');
 
-    $component = new PageComponent();
-    $component->build($files);
+    $component = new PageDatabase();
+    $component->execute($files);
 
     $this->assertTrue(count(Application::db()->retrieve('page_list')) > 0);
   }
