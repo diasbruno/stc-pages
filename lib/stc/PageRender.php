@@ -25,7 +25,7 @@ class PageRender
    * @param $file string | The filename.
    * @return bool
    */
-  private function is_index($file = '')
+  private function is_index($filename = '')
   {
     $pattern = '/(^index).+$/';
     return preg_match($pattern, $filename);
