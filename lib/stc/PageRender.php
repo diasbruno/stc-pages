@@ -70,7 +70,11 @@ class PageRender
       'post'=> $file,
     ]);
 
-    printLn('==> Current page: ' . $file['title'] . ': ' . $tmpl['slug']);
+    if ($this->is_index($file['file'])) {
+      printLn('==> Current page: index: /');
+    } else {
+      printLn('==> Current page: ' . $file['title'] . ': /' . $tmpl['slug']);
+    }
 
     return $tmpl;
   }
