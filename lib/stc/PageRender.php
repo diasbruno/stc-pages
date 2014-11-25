@@ -71,9 +71,9 @@ class PageRender
     ]);
 
     if ($this->is_index($file['file'])) {
-      printLn('==> Current page: index: /');
+      $this->log_current_page('index', '');
     } else {
-      printLn('==> Current page: ' . $file['title'] . ': /' . $tmpl['slug']);
+      $this->log_current_page($file['title'], $tmpl['slug']);
     }
 
     return $tmpl;
@@ -95,5 +95,16 @@ class PageRender
       $tmpl = $this->make_data($page);
       $writer->write($tmpl['slug'], 'index.html', $tmpl['html']);
     }
+  }
+
+  /**
+   * Log current page.
+   * @param $title string | The title of the page.
+   * @param $slug string | The slug.
+   * @return void
+   */
+  private function log_current_page($title, $slug)
+  {
+    printLn('==> Current page: ' . $title . ': /' . $slug);
   }
 }
