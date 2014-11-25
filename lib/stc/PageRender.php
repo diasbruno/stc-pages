@@ -56,12 +56,12 @@ class PageRender
       throw new Exception('x> Current page: ' . $file['title'] . ' does not have a template.');
     }
 
-    $t = Config::templates()->template($file['template']);
+    $t = Application::templates()->template($file['template']);
 
     $tmpl = $file;
     $tmpl['slug'] = $this->make_slug($file, $tmpl);
 
-    $data_folder = Config::data_folder();
+    $data_folder = Application::data_folder();
     $template_name = $data_folder . '/templates/' . $t;
     $content_template = $data_folder . '/' . $file['content'];
 
@@ -87,7 +87,7 @@ class PageRender
   public function render($files)
   {
     printLn('=> PageRender.');
-    $pages = Config::db()->retrieve('page_list');
+    $pages = Application::db()->retrieve('page_list');
 
     $writer = new DataWriter();
 

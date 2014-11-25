@@ -2,7 +2,7 @@
 
 namespace STC\Test;
 
-use STC\Config;
+use STC\Application;
 use STC\Files;
 use STC\PageComponent;
 use STC\PageRender;
@@ -11,7 +11,7 @@ class PagesTest extends \PHPUnit_Framework_TestCase
 {
   public function setUp()
   {
-    Config::bootstrap(dirname(__FILE__), 'data');
+    Application::bootstrap(dirname(__FILE__), 'data');
   }
 
   public function testUnits()
@@ -28,6 +28,6 @@ class PagesTest extends \PHPUnit_Framework_TestCase
     $component = new PageComponent();
     $component->build($files);
 
-    $this->assertTrue(count(Config::db()->retrieve('page_list')) > 0);
+    $this->assertTrue(count(Application::db()->retrieve('page_list')) > 0);
   }
 }

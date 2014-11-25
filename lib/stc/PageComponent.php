@@ -40,6 +40,6 @@ class PageComponent
   {
     $files = $files->filter_by(array(&$this, 'filter_by_type'));
 
-    Config::db()->store('page_list', $files);
+    Application::db()->store('page_list', $files);
   }
 }
