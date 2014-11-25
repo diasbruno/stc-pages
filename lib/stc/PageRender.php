@@ -89,8 +89,6 @@ class PageRender
     printLn('=> PageRender.');
     $pages = Config::db()->retrieve('page_list');
 
-    $t = Config::templates()->templates_path() . '/';
-
     $writer = new DataWriter();
 
     foreach($pages as $page) {
