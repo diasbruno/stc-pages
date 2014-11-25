@@ -5,7 +5,7 @@ namespace STC\Test;
 use STC\Application;
 use STC\Files;
 use STC\PageComponent;
-use STC\PageRender;
+use STC\PageWriter;
 
 class PagesTest extends \PHPUnit_Framework_TestCase
 {
@@ -17,7 +17,7 @@ class PagesTest extends \PHPUnit_Framework_TestCase
   public function testUnits()
   {
     $this->assertTrue(new PageComponent() != null);
-    $this->assertTrue(new PageRender() != null);
+    $this->assertTrue(new PageWriter() != null);
   }
 
   public function testBuildComponent()
