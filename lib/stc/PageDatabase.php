@@ -6,7 +6,7 @@ namespace STC;
  * @author Bruno Dias <dias.h.bruno@gmail.com>
  * @license MIT License (see LICENSE)
  */
-class PageComponent
+class PageDatabase
 {
   /**
    * The type.
@@ -33,10 +33,11 @@ class PageComponent
   }
 
   /**
-   * Build.
+   * Make the database from the loaded content.
+   * @param $files Files | The Files component.
    * @return void
    */
-  public function build($files)
+  public function execute($files)
   {
     $files = $files->filter_by(array(&$this, 'filter_by_type'));
 
