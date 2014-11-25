@@ -42,7 +42,7 @@ class PageRender
     $filename = $file['file'];
     return $this->is_index($filename) ?
       '' :
-      $this->slugify->slugify($filename);
+      $this->slugify->slugify($file['title']);
   }
 
   /**
