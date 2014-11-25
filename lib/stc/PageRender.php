@@ -39,8 +39,7 @@ class PageRender
    */
   private function make_slug($file, &$tmpl)
   {
-    $filename = $file['file'];
-    return $this->is_index($filename) ?
+    return $this->is_index($file['file']) ?
       '' :
       $this->slugify->slugify($file['title']);
   }
