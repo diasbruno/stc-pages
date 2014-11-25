@@ -84,9 +84,9 @@ class PageWriter
    * @param $files array | A list of all available entries.
    * @return void
    */
-  public function render($files)
+  public function execute($files)
   {
-    printLn('=> PageRender.');
+    printLn('=> PageWriter.');
     $pages = Application::db()->retrieve('page_list');
 
     $writer = new DataWriter();
