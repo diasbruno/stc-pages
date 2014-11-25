@@ -1,0 +1,6 @@
+{
+  "type": "page",
+  "title": "test",
+  "template": "default",
+  "content": "pages/page-02.md"
+}

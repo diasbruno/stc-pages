@@ -65,10 +65,13 @@ class PageWriter
     $template_name = $data_folder . '/templates/' . $t;
     $content_template = $data_folder . '/' . $file['content'];
 
+    $render_content_with = Application::renders()->select($content_template);
     $render_with = Application::renders()->select($template_name);
 
     $tmpl['html'] = $render_with->render($template_name, [
-      'content' => view($content_template),
+      'content' => $render_content_with->render($content_template, [
+        'post'=> $file,
+      ]),
       'post'=> $file,
     ]);
 

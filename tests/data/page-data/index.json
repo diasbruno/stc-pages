@@ -1,3 +1,6 @@
 {
-	"type": "page"
+  "type": "page",
+  "title": "",
+  "template": "default",
+  "content": "pages/page-01.phtml"
 }
