@@ -9,7 +9,7 @@ use STC\PageWriter;
 
 class PagesTest extends \PHPUnit_Framework_TestCase
 {
-  public function setUp()
+  public function setup()
   {
     Application::bootstrap(dirname(__FILE__), 'data');
   }
