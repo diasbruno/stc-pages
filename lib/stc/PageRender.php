@@ -21,6 +21,17 @@ class PageRender
   }
 
   /**
+   * Check if it has 'index' in the filename.
+   * @param $file string | The filename.
+   * @return bool
+   */
+  private function is_index($file = '')
+  {
+    $pattern = '/(^index).+$/';
+    return preg_match($pattern, $filename);
+  }
+
+  /**
    * Make the page slug.
    * @param $file array | Raw file data.
    * @param $tmpl array | Reference to the new file data.
@@ -28,8 +39,10 @@ class PageRender
    */
   private function make_slug($file, &$tmpl)
   {
-    $tmpl['slug'] = array_key_exists('is_index', $file) ? 
-      '' : $this->slugify->slugify($file['title']);
+    $filename = $file['file'];
+    return $this->is_index($filename) ?
+      '' :
+      $this->slugify->slugify($filename);
   }
 
   /**
