@@ -47,10 +47,14 @@ class PageRender
     $t = Config::templates()->template($file['template']);
 
     $tmpl = $file;
-    $this->make_slug($file, $tmpl);
+    $tmpl['slug'] = $this->make_slug($file, $tmpl);
 
-    $tmpl['html'] = view(Config::data_folder() . '/templates/' . $t, [
-      'content' => view(Config::data_folder() . '/' . $file['content']),
+    $data_folder = Config::data_folder();
+    $template_name = $data_folder . '/templates/' . $t;
+    $content_template = $data_folder . '/' . $file['content'];
+
+    $tmpl['html'] = view($template_name, [
+      'content' => view($content_template),
       'post'=> $file,
     ]);
 
